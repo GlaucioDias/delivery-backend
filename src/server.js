@@ -13,9 +13,10 @@ config({
 // console.log(configPath)
 
 const port = process.env.PORT;
-const express = require('express')
-const bodyParser = require('body-parser')
-const mongodb = require('./database/mongodb')
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongodb = require('./database/mongodb');
 
 class App {
     constructor() {
@@ -32,8 +33,9 @@ class App {
     }
 
     middleware() {
-        this.express.use(bodyParser.urlencoded({ extended: false }))
-        this.express.use(bodyParser.json())
+        this.express.use(cors());
+        this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(bodyParser.json());
     }
 
     routes() {
