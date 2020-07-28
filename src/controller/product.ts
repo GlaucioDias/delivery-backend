@@ -7,10 +7,11 @@ const mongoose = require("mongoose");
 exports.listProducts = async (request: Request, response: Response,
   next: NextFunction) => {
   try {
-    const products = await Product.find().sort([
-      ["name", 1],
-      ["price", 1],
-    ]);
+    const products = await Product.find({})
+      .sort([
+        ["name", 1],
+        // ["price", 1],
+      ]);
     return response.status(200).json(products).end();
   } catch (error) {
     return next(response.status(500).json(error));
