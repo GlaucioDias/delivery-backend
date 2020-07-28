@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 const { validationResult } = require("express-validator");
 
-const Product = require("../model/product");
+import Product from './models/product';
+// const Product = require("./models/product");
 const mongoose = require("mongoose");
 
 exports.listProducts = async (

@@ -48,8 +48,8 @@ class App {
 
   private routes(): void {
     // this.express.use(require('./routes/productRoutes'))
-    this.express.use(require("./routes/product"));
-    this.express.use(require("./order/routes"));
+    this.express.use(require("./modules/product/routes"));
+    this.express.use(require("./modules/order/routes"));
   }
 }
 // module.exports = new App().express;
