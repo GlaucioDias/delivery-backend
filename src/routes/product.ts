@@ -1,23 +1,26 @@
-const Router = require("express").Router();
+// const Router = require("express").Router();
+import * as express from 'express';
+const Router = express.Router();
 const ProductController = require("../controller/product");
 const ProductValidate = require("../controller/productValidate");
 
 Router.route("/products")
   .get(ProductController.listProducts)
   .post(
-    ProductValidate.validate("createProduct"),
+    ProductValidate.validateProductCreate,
     ProductController.createProduct
   );
 
 Router.route("/products/:id")
   .get(ProductController.detailProduct)
   .patch(
-    ProductValidate.validate("updateProduct"),
+    ProductValidate.validateProductUpdate,
     ProductController.updateProduct
   )
   .delete(
-    ProductValidate.validate("deleteProduct"),
+    ProductValidate.validateProductDelete,
     ProductController.deleteProduct
   );
 
 module.exports = Router;
+// export default Router

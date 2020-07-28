@@ -4,7 +4,8 @@ const { validationResult } = require("express-validator");
 const Product = require("../model/product");
 const mongoose = require("mongoose");
 
-exports.listProducts = async (request: Request, response: Response) => {
+exports.listProducts = async (request: Request, response: Response,
+  next: NextFunction) => {
   try {
     const products = await Product.find().sort([
       ["name", 1],
@@ -12,7 +13,7 @@ exports.listProducts = async (request: Request, response: Response) => {
     ]);
     return response.status(200).json(products).end();
   } catch (error) {
-    console.log(error);
+    return next(response.status(500).json(error));
   }
 };
 
@@ -31,7 +32,7 @@ exports.createProduct = async (
     const test = await Product.findOne({
       name,
     });
-    if (test) return response.status(422).json("product already exist");
+    if (test) return response.status(422).json("product already exists");
     const productProfile = await Product.create({
       name,
       description,
