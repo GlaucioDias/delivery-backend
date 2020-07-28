@@ -6,6 +6,7 @@ interface Product extends Document {
   price: number;
   available: boolean;
 }
+
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -30,4 +31,4 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-export default mongoose.model<Product>("products", productSchema);
+export default mongoose.model("products", productSchema);
