@@ -6,6 +6,7 @@ interface Product extends Document {
   price: number;
   available: boolean;
 }
+
 const productSchema = new mongoose.Schema(
   {
     name: {
