@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
+import Product from "../model/product"
 const { validationResult } = require("express-validator");
 
-const Product = require("../model/product");
 const mongoose = require("mongoose");
 
 exports.listProducts = async (
@@ -10,10 +10,9 @@ exports.listProducts = async (
   next: NextFunction
   ) => {
   try {
-    const products = await Product.find().sort([
-      ["name", 1],
-      // ["price", 1],
-    ]);
+    const products = await Product.find({}).sort([
+      ["name", 1]])
+
     return response.status(200).json(products).end();
   } catch (error) {
     console.log(error)  
