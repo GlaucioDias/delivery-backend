@@ -6,7 +6,7 @@ class MongoDB {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
-        }, function (error) {
+        }, function (error: any) {
             if (!error) return
             console.log('Connection failure', error)
         })
@@ -15,5 +15,4 @@ class MongoDB {
         return connection
     }
 }
-
-module.exports = MongoDB
+export default MongoDB
