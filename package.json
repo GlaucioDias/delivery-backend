@@ -6,7 +6,7 @@
     "test": "export NODE_ENV=test && jest",
     "test:watch": "yarn test -- --watch",
     "dev": "nodemon src/server.ts",
-    "prod": "cross-env NODE_ENV=prod node src/server.ts"
+    "prod": "cross-env NODE_ENV=prod node --experimental-modules src/server.ts"
   },
   "type": "module",
   "dependencies": {
