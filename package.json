@@ -5,8 +5,10 @@
   "scripts": {
     "test": "export NODE_ENV=test && jest",
     "test:watch": "yarn test -- --watch",
+    "start": "yarn build && node build/server.js",
     "dev": "nodemon src/server.ts",
-    "prod": "cross-env NODE_ENV=prod ts-node/esm src/server.ts"
+    "build": "rimraf ./build && tsc",
+    "prod": "cross-env NODE_ENV=prod yarn build && node build/server.js"
   },
   "dependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
