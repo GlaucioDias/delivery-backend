@@ -6,9 +6,8 @@
     "test": "export NODE_ENV=test && jest",
     "test:watch": "yarn test -- --watch",
     "dev": "nodemon src/server.ts",
-    "prod": "cross-env NODE_ENV=prod node --experimental-modules src/server.ts"
+    "prod": "cross-env NODE_ENV=prod ts-node/esm src/server.ts"
   },
-  "type": "module",
   "dependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "@types/jest": "^26.0.7",
