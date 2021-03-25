@@ -5,11 +5,9 @@
   "scripts": {
     "test": "export NODE_ENV=test && jest",
     "test:watch": "yarn test -- --watch",
-    "start": "npm run build && node build/server.js",
     "dev": "nodemon src/server.ts",
     "build": "rimraf ./build && tsc",
     "prod": "cross-env NODE_ENV=prod ts-node/esm src/server.ts",
-    "preinstall": "yarn add tsc",
     "deploy": "git add . &&  git commit -m deploy && git push origin master"
   },
   "dependencies": {
