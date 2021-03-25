@@ -25,9 +25,10 @@ class App {
   }
 
   private middleware(): void {
+    this.express.use('/public', express.static(join(__dirname, 'public')))
     this.express.use(cors());
     this.express.use(bodyParser.urlencoded({ extended: false }));
-    this.express.use(bodyParser.json());
+    this.express.use(express.json());
   }
 
   private routes(): void {
