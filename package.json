@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=prod node src",
-    "postinstall": "tsc",
     "watch-node": "nodemon src",
     "watch-ts": "tsc -w",
     "test": "export NODE_ENV=test && jest",
