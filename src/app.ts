@@ -2,14 +2,15 @@ const { config } = require("dotenv");
 const { join } = require("path");
 const { ok } = require("assert");
 
-const env = process.env.NODE_ENV || "dev"
-ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
+config()
+// const env = process.env.NODE_ENV || "dev"
+// ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
 
-const configPath = join(__dirname, './config', `.env.${env}`)
+// const configPath = join(__dirname, './config', `.env.${env}`)
 
-config({
-    path: configPath
-})
+// config({
+//     path: configPath
+// })
 
 
 

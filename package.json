@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && yarn start",
     "start": "node src",
     "delete": "rm -rf dist",
     "postinstall": "tsc",

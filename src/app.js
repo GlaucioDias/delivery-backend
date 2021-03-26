@@ -6,12 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { config } = require("dotenv");
 const { join } = require("path");
 const { ok } = require("assert");
-const env = process.env.NODE_ENV || "dev";
-ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev");
-const configPath = join(__dirname, './config', `.env.${env}`);
-config({
-    path: configPath
-});
+config();
+// const env = process.env.NODE_ENV || "dev"
+// ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
+// const configPath = join(__dirname, './config', `.env.${env}`)
+// config({
+//     path: configPath
+// })
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 class App {
