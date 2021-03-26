@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 
+const MONGO_URI = String(process.env.MONGO_URI)
+
 class MongoDB {
     static connect() {
-        mongoose.connect(String(process.env.MONGO_URI), {
+        mongoose.connect(MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
