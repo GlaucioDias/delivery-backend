@@ -2,15 +2,14 @@ const { config } = require("dotenv");
 const { join } = require("path");
 const { ok } = require("assert");
 
-// const env = process.env.NODE_ENV || "dev"
-// ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
+const env = process.env.NODE_ENV || "dev"
+ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
 
-// const configPath = join('./src/config', `.env.${env}`)
+const configPath = join('./src/config', `.env.${env}`)
 
-// config({
-//     path: configPath
-// })
-config()
+config({
+    path: configPath
+})
 
 
 import express from "express";
@@ -28,7 +27,6 @@ class App {
   private middleware(): void {
     console.log(process.env)
     this.express.use(cors());
-    this.express.use(bodyParser.urlencoded({ extended: false }));
     this.express.use(express.json());
   }
 
