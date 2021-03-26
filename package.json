@@ -3,8 +3,7 @@
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "start": "node src",
-    "delete": "rm -rf dist",
+    "start": "cross-env NODE_ENV=prod node src",
     "postinstall": "tsc",
     "watch-node": "nodemon src",
     "watch-ts": "tsc -w",
