@@ -12,11 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteProduct = exports.updateProduct = exports.detailProduct = exports.createProduct = exports.listProducts = void 0;
 const { validationResult } = require("express-validator");
 const product_1 = __importDefault(require("./models/product"));
 // const Product = require("./models/product");
 const mongoose = require("mongoose");
-exports.listProducts = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
+const listProducts = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = yield product_1.default.find().sort([
             ["name", 1],
@@ -29,7 +30,8 @@ exports.listProducts = (request, response, next) => __awaiter(void 0, void 0, vo
         return next(response.status(500).json(error));
     }
 });
-exports.createProduct = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.listProducts = listProducts;
+const createProduct = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const errors = validationResult(request);
         if (!errors.isEmpty()) {
@@ -53,7 +55,8 @@ exports.createProduct = (request, response, next) => __awaiter(void 0, void 0, v
         return next(response.status(500).json(error));
     }
 });
-exports.detailProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+exports.createProduct = createProduct;
+const detailProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const productId = request.params.id;
         if (!mongoose.isValidObjectId(productId))
@@ -68,7 +71,8 @@ exports.detailProduct = (request, response) => __awaiter(void 0, void 0, void 0,
         return response.status(500).json("error");
     }
 });
-exports.updateProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+exports.detailProduct = detailProduct;
+const updateProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const errors = validationResult(request);
         if (!errors.isEmpty()) {
@@ -94,7 +98,8 @@ exports.updateProduct = (request, response) => __awaiter(void 0, void 0, void 0,
         return response.status(500).json("error");
     }
 });
-exports.deleteProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+exports.updateProduct = updateProduct;
+const deleteProduct = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const errors = validationResult(request);
         if (!errors.isEmpty()) {
@@ -115,4 +120,5 @@ exports.deleteProduct = (request, response) => __awaiter(void 0, void 0, void 0,
         return response.status(500).json("error");
     }
 });
+exports.deleteProduct = deleteProduct;
 //# sourceMappingURL=controllers.js.map

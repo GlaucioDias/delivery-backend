@@ -1,25 +1,26 @@
 // const Router = require("express").Router();
-import * as express from 'express';
+import express from 'express';
+import { createProduct, listProducts, deleteProduct, detailProduct, updateProduct } from './controllers'
 const Router = express.Router();
-const ProductController = require("./controllers");
+
 const ProductValidate = require("./validations");
 
 Router.route("/products")
-  .get(ProductController.listProducts)
+  .get(listProducts)
   .post(
     ProductValidate.validateProductCreate,
-    ProductController.createProduct
+    createProduct
   );
 
 Router.route("/products/:id")
-  .get(ProductController.detailProduct)
+  .get(detailProduct)
   .patch(
     ProductValidate.validateProductUpdate,
-    ProductController.updateProduct
+    updateProduct
   )
   .delete(
     ProductValidate.validateProductDelete,
-    ProductController.deleteProduct
+    deleteProduct
   );
 
 module.exports = Router;

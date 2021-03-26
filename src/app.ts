@@ -1,12 +1,8 @@
-const { config } = require("dotenv");
-const { join } = require("path");
-const { ok } = require("assert");
-
-config()
-
+import { config } from 'dotenv'
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
+
+config()
 
 class App {
   public express: express.Application;

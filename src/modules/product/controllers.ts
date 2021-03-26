@@ -5,7 +5,7 @@ import Product from './models/product';
 // const Product = require("./models/product");
 const mongoose = require("mongoose");
 
-exports.listProducts = async (
+export const listProducts = async (
   request: Request, 
   response: Response,
   next: NextFunction
@@ -22,7 +22,7 @@ exports.listProducts = async (
   }
 };
 
-exports.createProduct = async (
+export const createProduct = async (
   request: Request,
   response: Response,
   next: NextFunction
@@ -49,7 +49,7 @@ exports.createProduct = async (
   }
 };
 
-exports.detailProduct = async (request: Request, response: Response) => {
+export const detailProduct = async (request: Request, response: Response) => {
   try {
     const productId = request.params.id;
     if (!mongoose.isValidObjectId(productId))
@@ -64,7 +64,7 @@ exports.detailProduct = async (request: Request, response: Response) => {
   }
 };
 
-exports.updateProduct = async (request: Request, response: Response) => {
+export const updateProduct = async (request: Request, response: Response) => {
   try {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
@@ -93,7 +93,7 @@ exports.updateProduct = async (request: Request, response: Response) => {
   }
 };
 
-exports.deleteProduct = async (request: Request, response: Response) => {
+export const deleteProduct = async (request: Request, response: Response) => {
   try {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {

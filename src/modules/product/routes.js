@@ -1,36 +1,20 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // const Router = require("express").Router();
-const express = __importStar(require("express"));
-const Router = express.Router();
-const ProductController = require("./controllers");
+const express_1 = __importDefault(require("express"));
+const controllers_1 = require("./controllers");
+const Router = express_1.default.Router();
 const ProductValidate = require("./validations");
 Router.route("/products")
-    .get(ProductController.listProducts)
-    .post(ProductValidate.validateProductCreate, ProductController.createProduct);
+    .get(controllers_1.listProducts)
+    .post(ProductValidate.validateProductCreate, controllers_1.createProduct);
 Router.route("/products/:id")
-    .get(ProductController.detailProduct)
-    .patch(ProductValidate.validateProductUpdate, ProductController.updateProduct)
-    .delete(ProductValidate.validateProductDelete, ProductController.deleteProduct);
+    .get(controllers_1.detailProduct)
+    .patch(ProductValidate.validateProductUpdate, controllers_1.updateProduct)
+    .delete(ProductValidate.validateProductDelete, controllers_1.deleteProduct);
 module.exports = Router;
 // export default Router
 //# sourceMappingURL=routes.js.map
