@@ -5,7 +5,7 @@ const { ok } = require("assert");
 const env = process.env.NODE_ENV || "dev"
 ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
 
-const configPath = join('./src/config', `.env.${env}`)
+const configPath = join('./config', `.env.${env}`)
 
 config({
     path: configPath
