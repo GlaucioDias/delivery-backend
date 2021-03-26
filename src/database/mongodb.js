@@ -15,7 +15,7 @@ const options = {
 };
 class MongoDB {
     static connect() {
-        mongoose.connect('mongodb+srv://glaucio:qwe123@omnistack-mux5o.mongodb.net/delivery?authSource=admin&replicaSet=omnistack-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true', options, function (error) {
+        mongoose.connect(MONGO_URI, options, function (error) {
             if (!error)
                 return;
             console.log('Connection failure', error);
