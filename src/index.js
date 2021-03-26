@@ -17,4 +17,4 @@ function normalizePort(val) {
 }
 app_1.default.listen(port, () => console.log(`API running on port: ${port}`));
 mongodb_1.default.connect();
-//# sourceMappingURL=server.js.map
+//# sourceMappingURL=index.js.map
