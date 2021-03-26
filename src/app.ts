@@ -26,17 +26,14 @@ class App {
 
   private middleware(): void {
     console.log(process.env)
-    this.express.use('/public', express.static(join(__dirname, 'public')))
     this.express.use(cors());
     this.express.use(bodyParser.urlencoded({ extended: false }));
     this.express.use(express.json());
   }
 
   private routes(): void {
-    // this.express.use(require('./routes/productRoutes'))
     this.express.use(require("./modules/product/routes"));
     this.express.use(require("./modules/order/routes"));
   }
 }
-// module.exports = new App().express;
 export default new App().express;
