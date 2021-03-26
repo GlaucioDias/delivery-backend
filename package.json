@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc && yarn start",
-    "start": "node dist/server.js",
+    "start": "node src/server.js",
     "delete": "rm -rf dist",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/index.js",
