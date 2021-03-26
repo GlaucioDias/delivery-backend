@@ -23,6 +23,7 @@ const listProducts = (request, response, next) => __awaiter(void 0, void 0, void
             ["name", 1],
             // ["price", 1],
         ]);
+        console.log(products);
         return response.status(200).json(products).end();
     }
     catch (error) {

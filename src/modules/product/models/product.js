@@ -21,9 +21,12 @@ const productSchema = new mongoose_1.default.Schema({
     available: {
         type: Boolean,
         default: true,
-    },
+    }
 }, {
     timestamps: true,
+    capped: { size: 1024 },
+    bufferCommands: false,
+    autoCreate: false
 });
 exports.default = mongoose_1.default.model("products", productSchema);
 //# sourceMappingURL=product.js.map

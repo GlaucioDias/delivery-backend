@@ -23,10 +23,13 @@ const productSchema = new mongoose.Schema(
     available: {
       type: Boolean,
       default: true,
-    },
+    }
   },
   {
     timestamps: true,
+    capped: { size: 1024 },
+    bufferCommands: false,
+    autoCreate: false
   }
 );
 export default mongoose.model<Product>("products", productSchema);

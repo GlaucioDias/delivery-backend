@@ -15,6 +15,7 @@ export const listProducts = async (
       ["name", 1],
       // ["price", 1],
     ]);
+    console.log(products)
     return response.status(200).json(products).end();
   } catch (error) {
     console.log(error)  
