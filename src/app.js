@@ -8,7 +8,7 @@ const { join } = require("path");
 const { ok } = require("assert");
 const env = process.env.NODE_ENV || "dev";
 ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev");
-const configPath = join('./config', `.env.${env}`);
+const configPath = join(__dirname, './config', `.env.${env}`);
 config({
     path: configPath
 });
@@ -21,7 +21,7 @@ class App {
         this.routes();
     }
     middleware() {
-        console.log(process.env);
+        console.log(configPath);
         this.express.use(cors_1.default());
         this.express.use(express_1.default.json());
     }
