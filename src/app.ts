@@ -5,7 +5,7 @@ const { ok } = require("assert");
 const env = process.env.NODE_ENV || "dev"
 ok(env === "prod" || env === "dev", "environment inválida! Ou prod ou dev")
 
-const configPath = join('./config', `.env.${env}`)
+const configPath = join('./src/config', `.env.${env}`)
 
 config({
     path: configPath
@@ -25,6 +25,7 @@ class App {
   }
 
   private middleware(): void {
+    console.log(process.env)
     this.express.use('/public', express.static(join(__dirname, 'public')))
     this.express.use(cors());
     this.express.use(bodyParser.urlencoded({ extended: false }));
