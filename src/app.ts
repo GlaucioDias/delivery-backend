@@ -12,6 +12,8 @@ config({
 })
 
 
+
+
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -25,7 +27,7 @@ class App {
   }
 
   private middleware(): void {
-    console.log(configPath)
+    console.log(process.env)
     this.express.use(cors());
     this.express.use(express.json());
   }

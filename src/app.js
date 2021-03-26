@@ -21,7 +21,7 @@ class App {
         this.routes();
     }
     middleware() {
-        console.log(configPath);
+        console.log(process.env);
         this.express.use(cors_1.default());
         this.express.use(express_1.default.json());
     }
